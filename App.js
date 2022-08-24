@@ -1,7 +1,12 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
+import CategoryList from "./screens/CategoryList";
 
 export default function App() {
-  return <View></View>;
+  return (
+    <View>
+      <CategoryList />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({});
