@@ -1,15 +1,29 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import { CATEGORIES } from "../data";
 
-function List(item) {
-  return (
-    <View style={styles.box}>
-      <Text style={styles.content}>{item.item.title}</Text>
-    </View>
-  );
-}
+export default function CategoryList({ navigation }) {
+  function List(item) {
+    return (
+      <TouchableOpacity
+        style={[styles.box, { backgroundColor: item.item.color }]}
+        onPress={() => {
+          navigation.navigate("Overview", {
+            id: item.item.id,
+            sdad: "sd",
+          });
+        }}
+      >
+        <Text style={styles.content}>{item.item.title}</Text>
+      </TouchableOpacity>
+    );
+  }
 
-export default function CategoryList() {
   return (
     <FlatList
       style={styles.boxmain}
@@ -24,10 +38,11 @@ export default function CategoryList() {
 const styles = StyleSheet.create({
   boxmain: {
     width: "100%",
+    backgroundColor: "black",
+    paddingTop: 20,
   },
   box: {
     flex: 1,
-    borderWidth: 1,
     height: 160,
     margin: 16,
     elevation: 4,
