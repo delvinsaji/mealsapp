@@ -25,7 +25,14 @@ export default function Mealsoverview({ route, navigation }) {
       }}
       renderItem={(item) => {
         return (
-          <TouchableOpacity style={style.x}>
+          <TouchableOpacity
+            style={style.x}
+            onPress={() => {
+              navigation.navigate("Detail", {
+                item: item,
+              });
+            }}
+          >
             <Image
               source={{ uri: item.item.imageUrl }}
               style={style.image}
