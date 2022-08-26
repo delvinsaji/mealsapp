@@ -1,11 +1,20 @@
 import { View, StyleSheet, FlatList, Text, Image } from "react-native";
 import { TouchableOpacity } from "react-native";
-import { MEALS } from "../data";
+import { CATEGORIES, MEALS } from "../data";
 import { useState, useEffect } from "react";
 
-export default function Mealsoverview({ route }) {
+export default function Mealsoverview({ route, navigation }) {
   const displayedMeals = MEALS.filter((item) => {
     return item.categoryIds.indexOf(route.params.id) >= 0;
+  });
+  const id = route.params.id;
+
+  useEffect(() => {
+    const categoryTitle = CATEGORIES.find(
+      (category) => category.id == id
+    ).title;
+
+    navigation.setOptions({ title: categoryTitle });
   });
 
   return (
