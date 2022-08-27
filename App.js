@@ -3,6 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Mealsoverview from "./screens/MealsOverView";
 import MealDetail from "./screens/MealDetail";
+import Favourite from "./screens/Favourites";
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
