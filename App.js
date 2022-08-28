@@ -4,8 +4,19 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Mealsoverview from "./screens/MealsOverView";
 import MealDetail from "./screens/MealDetail";
 import Favourite from "./screens/Favourites";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+
+function Drawerfunction() {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="categories" component={CategoryList}></Drawer.Screen>
+      <Drawer.Screen name="Favourites" component={Favourite}></Drawer.Screen>
+    </Drawer.Navigator>
+  );
+}
 
 export default function App() {
   return (
@@ -13,8 +24,8 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           name="categories"
-          component={CategoryList}
-          options={{ title: "Categories" }}
+          component={Drawerfunction}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Overview"
